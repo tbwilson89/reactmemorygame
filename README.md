@@ -1,3 +1,12 @@
+## Memory Guessing Game (React)
+
+A simple memory game created with the react framework.
+
+Choose an image to start the game, select a unique image until you've selected all 12 for the high score!
+Score will be tracked until you select the same image twice within a single play of the game. Highest score will be tracked per visit.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

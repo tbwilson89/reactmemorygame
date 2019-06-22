@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import TopBar from './components/topbar.js'
+import GameBoard from './components/gameboard.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      score: 0,
+      topScore: 0
+    }
+  }
+  updateScore = () => {
+    let newScore = this.state.score + 1
+    let newTop
+    if(newScore > this.state.topScore){
+      newTop = newScore
+    } else {
+      newTop = this.state.topScore
+    }
+    this.setState({
+      score: newScore,
+      topScore: newTop
+    })
+  }
+  resetScore = () => {
+    this.setState({
+      score: 0
+    })
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <TopBar score={this.state.score} topScore={this.state.topScore} />
+        <GameBoard updateScore={this.updateScore} resetScore={this.resetScore} message={this.state.message} />
+      </div>
+    );
+  }
 }
-
-export default App;
