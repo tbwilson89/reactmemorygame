@@ -11,7 +11,7 @@ export default class GameTile extends Component {
   render(){
     return(
       <li>
-        <img style={{width: '100%'}} src={`/images/${this.props.num}.png`} alt={this.props.num} onClick={() => this.props.handleClick(this.props.num)}/>
+        <img style={{width: '100%'}} src={`./images/${this.props.num}.png`} alt={this.props.num} onClick={() => this.props.handleClick(this.props.num)}/>
       </li>
     )
   }
